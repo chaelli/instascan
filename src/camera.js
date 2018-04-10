@@ -21,14 +21,13 @@ class Camera {
     let constraints = {
       audio: false,
       video: {
-      	facingMode: 'environment',
-        mandatory: {
+      	mandatory: {
           sourceId: this.id,
           minWidth: 600,
           maxWidth: 800,
           minAspectRatio: 1.6
         },
-        optional: []
+        optional: {facingMode: 'environment'}
       }
     };
 
