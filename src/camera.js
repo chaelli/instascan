@@ -19,36 +19,15 @@ class Camera {
 
   async start() {
      let constraints;
-    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-    if (iOS) {
-      constraints = {
+     constraints = {
         audio: false,
         video: {
-          facingMode: 'environment',
-          mandatory: {
-            sourceId: this.id,
-            minWidth: 600,
-            maxWidth: 800,
-            minAspectRatio: 1.6
-          },
-          optional: []
-        }
-      };
-    } else {
-      constraints = {
-        audio: false,
-        video: {
-          mandatory: {
-            sourceId: this.id,
-            minWidth: 600,
-            maxWidth: 800,
-            minAspectRatio: 1.6
-          },
-          optional: []
-        }
-      };
-    }
+	      facingMode: "environment",
+	      width: { min: 600, max: 800 },
+	      sourceId: this.id,
+          minAspectRatio: 1.6
+	    }
+	};
 
     this._stream = await Camera._wrapErrors(async () => {
       return await navigator.mediaDevices.getUserMedia(constraints);
