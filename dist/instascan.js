@@ -30464,7 +30464,7 @@ var Camera = function () {
                 audio: false,
                 video: {
                   facingMode: "environment",
-                  width: { min: 600, max: 800 },
+                  width: 640,
                   sourceId: this.id,
                   minAspectRatio: 1.6
                 }
