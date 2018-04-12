@@ -24,8 +24,7 @@ class Camera {
         video: {
 	      facingMode: "environment",
 	      width: 640,
-	      sourceId: this.id,
-          minAspectRatio: 1.6
+	      sourceId: this.id
 	    }
 	};
 
