@@ -23,9 +23,9 @@ class Camera {
         audio: false,
         video: {
 	      facingMode: "environment",
-	      width: 640,
-	      sourceId: this.id
-	    }
+	      width: 640
+	    },
+	    optional: [{sourceId: this.id}]
 	};
 
     this._stream = await Camera._wrapErrors(async () => {
