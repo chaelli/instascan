@@ -30465,8 +30465,7 @@ var Camera = function () {
                 video: {
                   facingMode: "environment",
                   width: 640
-                },
-                optional: [{ sourceId: this.id }]
+                }
               };
 
               _context2.next = 4;
