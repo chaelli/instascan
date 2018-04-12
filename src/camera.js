@@ -24,7 +24,7 @@ class Camera {
         video: {
 	      facingMode: "environment",
 	      width: 640,
-	      optional: [{sourceId: this.id}]
+	      optional: [{facingMode: "environment", width: 640, sourceId: this.id}]
 	    }
 
 	};
