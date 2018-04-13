@@ -30409,7 +30409,7 @@ module.exports = {
 };
 
 },{}],349:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -30430,7 +30430,7 @@ var MediaError = function (_Error) {
   function MediaError(type) {
     _classCallCheck(this, MediaError);
 
-    var _this = _possibleConstructorReturn(this, (MediaError.__proto__ || Object.getPrototypeOf(MediaError)).call(this, 'Cannot access video stream (' + type + ').'));
+    var _this = _possibleConstructorReturn(this, (MediaError.__proto__ || Object.getPrototypeOf(MediaError)).call(this, "Cannot access video stream (" + type + ")."));
 
     _this.type = type;
     return _this;
@@ -30440,16 +30440,14 @@ var MediaError = function (_Error) {
 }(Error);
 
 var Camera = function () {
-  function Camera(id, name) {
+  function Camera() {
     _classCallCheck(this, Camera);
 
-    this.id = id;
-    this.name = name;
     this._stream = null;
   }
 
   _createClass(Camera, [{
-    key: 'start',
+    key: "start",
     value: function start() {
       var _this2 = this;
 
@@ -30478,10 +30476,10 @@ var Camera = function () {
                         return regeneratorRuntime.awrap(navigator.mediaDevices.getUserMedia(constraints));
 
                       case 2:
-                        return _context.abrupt('return', _context.sent);
+                        return _context.abrupt("return", _context.sent);
 
                       case 3:
-                      case 'end':
+                      case "end":
                         return _context.stop();
                     }
                   }
@@ -30490,17 +30488,17 @@ var Camera = function () {
 
             case 4:
               this._stream = _context2.sent;
-              return _context2.abrupt('return', this._stream);
+              return _context2.abrupt("return", this._stream);
 
             case 6:
-            case 'end':
+            case "end":
               return _context2.stop();
           }
         }
       }, null, this);
     }
   }, {
-    key: 'stop',
+    key: "stop",
     value: function stop() {
       if (!this._stream) {
         return;
@@ -30534,149 +30532,119 @@ var Camera = function () {
       this._stream = null;
     }
   }], [{
-    key: 'getCameras',
-    value: function getCameras() {
-      var devices;
-      return regeneratorRuntime.async(function getCameras$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return regeneratorRuntime.awrap(this._ensureAccess());
-
-            case 2:
-              _context3.next = 4;
-              return regeneratorRuntime.awrap(navigator.mediaDevices.enumerateDevices());
-
-            case 4:
-              devices = _context3.sent;
-              return _context3.abrupt('return', devices.filter(function (d) {
-                return d.kind === 'videoinput';
-              }).map(function (d) {
-                return new Camera(d.deviceId, cameraName(d.label));
-              }));
-
-            case 6:
-            case 'end':
-              return _context3.stop();
-          }
-        }
-      }, null, this);
-    }
-  }, {
-    key: '_ensureAccess',
+    key: "_ensureAccess",
     value: function _ensureAccess() {
       var _this3 = this;
 
-      return regeneratorRuntime.async(function _ensureAccess$(_context5) {
+      return regeneratorRuntime.async(function _ensureAccess$(_context4) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
-              _context5.next = 2;
+              _context4.next = 2;
               return regeneratorRuntime.awrap(this._wrapErrors(function _callee2() {
                 var access, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, stream;
 
-                return regeneratorRuntime.async(function _callee2$(_context4) {
+                return regeneratorRuntime.async(function _callee2$(_context3) {
                   while (1) {
-                    switch (_context4.prev = _context4.next) {
+                    switch (_context3.prev = _context3.next) {
                       case 0:
-                        _context4.next = 2;
+                        _context3.next = 2;
                         return regeneratorRuntime.awrap(navigator.mediaDevices.getUserMedia({ video: true }));
 
                       case 2:
-                        access = _context4.sent;
+                        access = _context3.sent;
                         _iteratorNormalCompletion2 = true;
                         _didIteratorError2 = false;
                         _iteratorError2 = undefined;
-                        _context4.prev = 6;
+                        _context3.prev = 6;
 
                         for (_iterator2 = access.getVideoTracks()[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                           stream = _step2.value;
 
                           stream.stop();
                         }
-                        _context4.next = 14;
+                        _context3.next = 14;
                         break;
 
                       case 10:
-                        _context4.prev = 10;
-                        _context4.t0 = _context4['catch'](6);
+                        _context3.prev = 10;
+                        _context3.t0 = _context3["catch"](6);
                         _didIteratorError2 = true;
-                        _iteratorError2 = _context4.t0;
+                        _iteratorError2 = _context3.t0;
 
                       case 14:
-                        _context4.prev = 14;
-                        _context4.prev = 15;
+                        _context3.prev = 14;
+                        _context3.prev = 15;
 
                         if (!_iteratorNormalCompletion2 && _iterator2.return) {
                           _iterator2.return();
                         }
 
                       case 17:
-                        _context4.prev = 17;
+                        _context3.prev = 17;
 
                         if (!_didIteratorError2) {
-                          _context4.next = 20;
+                          _context3.next = 20;
                           break;
                         }
 
                         throw _iteratorError2;
 
                       case 20:
-                        return _context4.finish(17);
+                        return _context3.finish(17);
 
                       case 21:
-                        return _context4.finish(14);
+                        return _context3.finish(14);
 
                       case 22:
-                      case 'end':
-                        return _context4.stop();
+                      case "end":
+                        return _context3.stop();
                     }
                   }
                 }, null, _this3, [[6, 10, 14, 22], [15,, 17, 21]]);
               }));
 
             case 2:
-              return _context5.abrupt('return', _context5.sent);
+              return _context4.abrupt("return", _context4.sent);
 
             case 3:
-            case 'end':
-              return _context5.stop();
+            case "end":
+              return _context4.stop();
           }
         }
       }, null, this);
     }
   }, {
-    key: '_wrapErrors',
+    key: "_wrapErrors",
     value: function _wrapErrors(fn) {
-      return regeneratorRuntime.async(function _wrapErrors$(_context6) {
+      return regeneratorRuntime.async(function _wrapErrors$(_context5) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              _context6.prev = 0;
-              _context6.next = 3;
+              _context5.prev = 0;
+              _context5.next = 3;
               return regeneratorRuntime.awrap(fn());
 
             case 3:
-              return _context6.abrupt('return', _context6.sent);
+              return _context5.abrupt("return", _context5.sent);
 
             case 6:
-              _context6.prev = 6;
-              _context6.t0 = _context6['catch'](0);
+              _context5.prev = 6;
+              _context5.t0 = _context5["catch"](0);
 
-              if (!_context6.t0.name) {
-                _context6.next = 12;
+              if (!_context5.t0.name) {
+                _context5.next = 12;
                 break;
               }
 
-              throw new MediaError(_context6.t0.name);
+              throw new MediaError(_context5.t0.name);
 
             case 12:
-              throw _context6.t0;
+              throw _context5.t0;
 
             case 13:
-            case 'end':
-              return _context6.stop();
+            case "end":
+              return _context5.stop();
           }
         }
       }, null, this, [[0, 6]]);
