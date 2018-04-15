@@ -28079,13 +28079,24 @@ var Scanner = function (_EventEmitter) {
             case 5:
               stream = _context3.sent;
 
-              this.video.srcObject = stream;
+              try {
+                this.video.src = window.URL.createObjectURL(stream);
+              } catch (e) {
+                this.video.setAttribute("playsinline", true); // needed on ios
+                this.video.srcObject = stream; // on ios createObjectURL does not work...
+              }
+              try {
+                this.video.play();
+              } catch (e) {
+                alert(e.message);
+              }
+              //this.video.srcObject = stream;
 
               if (this._continuous) {
                 this._scanner.start();
               }
 
-            case 8:
+            case 9:
             case 'end':
               return _context3.stop();
           }
