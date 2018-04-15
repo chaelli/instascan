@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 var Instascan = {
   Scanner: require('./src/scanner'),
   Camera: require('./src/camera')
